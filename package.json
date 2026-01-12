@@ -1,0 +1,29 @@
+{
+  "name": "sistema-incidencias",
+  "version": "1.0.0",
+  "description": "Sistema de gestión de incidencias",
+  "main": "index.js",
+  "scripts": {
+    "backend": "cd backend && node server.js",
+    "frontend": "cd frontend && live-server --port=3000",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "db:setup:win": "powershell -ExecutionPolicy ByPass -File backend\\db_setup.ps1",
+    "db:setup:unix": "bash backend/db_setup.sh",
+    "db:setup": "echo \"Run 'npm run db:setup:win' on Windows or 'npm run db:setup:unix' on Unix-like systems\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "cloudinary": "^2.8.0",
+    "exceljs": "^4.4.0",
+    "multer": "^2.0.2",
+    "pdfkit": "^0.17.2",
+    "mysql2": "^3.3.0",
+    "sequelize": "^6.32.1"
+  }
+}

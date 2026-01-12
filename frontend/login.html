@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Ciudadano Cusco - Iniciar Sesión</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen relative">
+    <!-- Fondo panorámico de Cusco -->
+    <div class="absolute inset-0 z-0">
+        <img src="https://www.civitatis.com/blog/wp-content/uploads/2024/12/shutterstock_2296475151-scaled.jpg" alt="Cusco panoramic view" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <div class="relative z-10 bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+        <div class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-blue-800">Reporte Ciudadano Cusco</h1>
+            <p class="text-gray-600">Sistema integral de reportes ciudadanos para mejorar nuestra ciudad. Comunica incidencias, da seguimiento y contribuye al desarrollo de Cusco.</p>
+        </div>
+
+        <h2 class="text-2xl font-semibold text-center mb-4">Iniciar Sesión</h2>
+        <form id="loginForm">
+            <div class="mb-4">
+                <label for="correoElectronico" class="block text-gray-700 text-sm font-bold mb-2">Correo Electrónico:</label>
+                <input type="email" id="correoElectronico" name="correoElectronico" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="tu@email.com" required>
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Contraseña:</label>
+                <input type="password" id="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Ingresa tu contraseña" required>
+
+                <!-- AUMENTO: ver contraseña -->
+                <div class="mt-2 flex items-center">
+                    <input type="checkbox" id="verPassword" class="mr-2">
+                    <label for="verPassword" class="text-sm text-gray-700">Ver contraseña</label>
+                </div>
+
+                <a href="forgot-password.html" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">¿Olvidaste tu contraseña?</a>
+            </div>
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Iniciar Sesión</button>
+            </div>
+            <p class="text-center text-gray-600 text-xs mt-4">
+                ¿No tienes una cuenta?
+                <a href="register.html" class="text-blue-500 hover:text-blue-800">Crear Cuenta</a>
+            </p>
+
+            <p class="text-center text-gray-600 text-xs mt-2">
+                <a href="index.html" class="text-blue-500 hover:text-blue-800 font-semibold">
+                    ← Volver al inicio
+                </a>
+            </p>
+        </form>
+
+        <div class="text-center mt-6 text-gray-700 text-sm">
+            <p>Cuenta de administrador por defecto:</p>
+            <p>Email: admin@gmail.com</p>
+            <p>Contraseña: admin123</p>
+        </div>
+
+        <!-- Estadísticas del sistema (Placeholder) -->
+        <div class="mt-8 grid grid-cols-3 gap-4 text-center">
+            <div>
+                <p class="text-2xl font-bold">1,247</p>
+                <p class="text-gray-600">Reportes resueltos</p>
+            </div>
+            <div>
+                <p class="text-2xl font-bold">5</p>
+                <p class="text-gray-600">Distritos activos</p>
+            </div>
+            <div>
+                <p class="text-2xl font-bold">89%</p>
+                <p class="text-gray-600">Satisfacción</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/auth.js"></script>
+
+    <!-- AUMENTO: script ver contraseña -->
+    <script>
+        const passwordInput = document.getElementById("password");
+        const verPassword = document.getElementById("verPassword");
+
+        verPassword.addEventListener("change", function () {
+            passwordInput.type = this.checked ? "text" : "password";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciudadano - Mis Reportes</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css">
+</head>
+<body class="flex min-h-screen bg-gray-100">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-blue-800 text-white flex flex-col">
+        <div class="px-6 py-4 border-b border-blue-700">
+            <h2 class="text-2xl font-bold">Reporte Ciudadano</h2>
+            <p class="text-sm text-blue-200">Portal Ciudadano</p>
+        </div>
+        <div class="px-6 py-4 text-center">
+            <span class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-200 mx-auto mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+            </span>
+            <p class="font-semibold">Juan</p>
+            <p class="text-sm text-blue-200">DNI: 12345678</p>
+        </div>
+        <nav class="flex-1"> 
+            <a href="dashboard.html" class="flex items-center px-6 py-3 text-blue-100 hover:bg-blue-700 hover:text-white transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                Inicio
+            </a>
+            <a href="new-report.html" class="flex items-center px-6 py-3 text-blue-100 hover:bg-blue-700 hover:text-white transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Nuevo Reporte
+            </a>
+            <a href="my-reports.html" class="flex items-center px-6 py-3 text-blue-100 hover:bg-blue-700 hover:text-white transition-colors duration-200 bg-blue-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                </svg>
+                Mis Reportes
+            </a>
+            <a href="map.html" class="flex items-center px-6 py-3 text-blue-100 hover:bg-blue-700 hover:text-white transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Mapa de Incidencias
+            </a>
+            <a href="profile.html" class="flex items-center px-6 py-3 text-blue-100 hover:bg-blue-700 hover:text-white transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Mi Perfil
+            </a>
+        
+            <div class="mt-auto px-6 py-4 border-t border-blue-700">
+            <a href="#" data-logout="true" class="flex items-center text-blue-100 hover:text-white transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+                Cerrar Sesión
+            </a>
+        </div>
+        </nav>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="flex-1 p-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Mis Reportes</h1>
+        <p class="text-gray-600 mb-8">Historial y seguimiento de tus reportes ciudadanos</p>
+
+        <!-- Filtros de estado -->
+        <div class="flex space-x-4 mb-8">
+            <button id="btn-todos" class="px-4 py-2 rounded-lg bg-blue-600 text-white font-semibold" data-estado="Todos">Todos (0)</button>
+            <button id="btn-pendiente" class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 font-semibold" data-estado="Pendiente">Pendiente (0)</button>
+            <button id="btn-enproceso" class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 font-semibold" data-estado="En proceso">En proceso (0)</button>
+            <button id="btn-resuelto" class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 font-semibold" data-estado="Resuelto">Resuelto (0)</button>
+        </div>
+
+        <!-- Lista de Reportes -->
+        <div class="space-y-6">
+            <!-- Reporte 1: En Proceso -->
+            <div class="bg-white p-6 rounded-lg shadow flex flex-col md:flex-row items-start md:items-center">
+                <img src="https://via.placeholder.com/100" alt="Incidencia" class="w-full md:w-24 h-24 object-cover rounded-lg mr-6 mb-4 md:mb-0">
+                <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Semáforo dañado en Av. La Cultura</h3>
+                    <p class="text-gray-600 text-sm mb-1">Wanchaq - Semaforos</p>
+                    <p class="text-gray-700 text-sm mb-3">El semáforo en la esquina de Av. La Cultura con Jr. Collasuyo no funciona desde hace 3 días, causando congestión vehicular.</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mb-2">
+                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 50%;"></div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-2">Progreso del reporte: 50%</p>
+                    <p class="text-sm text-gray-700 mb-2">Asignado a: Departamento de Tránsito</p>
+                    <a href="#" class="text-blue-500 hover:text-blue-700 text-sm font-semibold">Ver detalles completos</a>
+                </div>
+                <div class="ml-0 md:ml-6 mt-4 md:mt-0">
+                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-200 text-blue-800">En Proceso</span>
+                </div>
+            </div>
+
+            <!-- Reporte 2: Pendiente -->
+            <div class="bg-white p-6 rounded-lg shadow flex flex-col md:flex-row items-start md:items-center">
+                <img src="https://via.placeholder.com/100" alt="Incidencia" class="w-full md:w-24 h-24 object-cover rounded-lg mr-6 mb-4 md:mb-0">
+                <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Alumbrado público defectuoso</h3>
+                    <p class="text-gray-600 text-sm mb-1">Cusco Centro - Alumbrado Público</p>
+                    <p class="text-gray-700 text-sm mb-3">Varias luminarias apagadas en Jr. Matará. La zona queda muy oscura en las noches.</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mb-2">
+                        <div class="bg-yellow-600 h-2.5 rounded-full" style="width: 0%;"></div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-2">Progreso del reporte: 0%</p>
+                    <p class="text-sm text-gray-700 mb-2">Asignado a: Sin asignar</p>
+                    <a href="#" class="text-blue-500 hover:text-blue-700 text-sm font-semibold">Ver detalles completos</a>
+                </div>
+                <div class="ml-0 md:ml-6 mt-4 md:mt-0">
+                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-yellow-200 text-yellow-800">Pendiente</span>
+                </div>
+            </div>
+
+            <!-- Reporte 3: Resuelto -->
+            <div class="bg-white p-6 rounded-lg shadow flex flex-col md:flex-row items-start md:items-center">
+                <img src="https://via.placeholder.com/100" alt="Incidencia" class="w-full md:w-24 h-24 object-cover rounded-lg mr-6 mb-4 md:mb-0">
+                <div class="flex-1">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Acumulación de basura en parque</h3>
+                    <p class="text-gray-600 text-sm mb-1">San Sebastián - Limpieza</p>
+                    <p class="text-gray-700 text-sm mb-3">El parque de la urbanización Los Incas tiene basura acumulada y mal olor.</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mb-2">
+                        <div class="bg-green-600 h-2.5 rounded-full" style="width: 100%;"></div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-2">Progreso del reporte: 100%</p>
+                    <p class="text-sm text-gray-700 mb-2">Asignado a: Residuos Sólidos</p>
+                    <a href="#" class="text-blue-500 hover:text-blue-700 text-sm font-semibold">Ver detalles completos</a>
+                </div>
+                <div class="ml-0 md:ml-6 mt-4 md:mt-0">
+                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-green-200 text-green-800">Resuelto</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="../js/shared/auth.js"></script>
+    <script src="../js/shared/logout.js"></script>
+    <script src="../js/shared/profile.js"></script>
+    <script src="../js/citizen/citizen.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Asegurarse de que auth.js esté cargado
+            if (typeof window.auth === 'undefined') {
+                console.error('auth.js no se ha cargado. Asegúrate de incluirlo antes de citizen.js');
+                window.location.href = 'index.html'; // Redirigir si no hay auth
+                return;
+            }
+
+            const reportListContainer = document.querySelector('.space-y-6');
+            const filterButtons = document.querySelectorAll('.flex.space-x-4 button');
+
+            // Función para obtener las clases de estilo de Tailwind CSS según el estado del reporte
+            function getReportStatusClass(status) {
+                switch (status) {
+                    case 'Pendiente':
+                        return 'bg-yellow-200 text-yellow-800';
+                    case 'En proceso':
+                        return 'bg-blue-200 text-blue-800';
+                    case 'En espera':
+                        return 'bg-orange-200 text-orange-800';
+                    case 'Resuelto':
+                        return 'bg-green-200 text-green-800';
+                    case 'Cerrado':
+                        return 'bg-gray-300 text-gray-800';
+                    default:
+                        return 'bg-gray-200 text-gray-700';
+                }
+            }
+
+            // Función para renderizar los reportes
+            function renderReports(reports) {
+                reportListContainer.innerHTML = '';
+                if (reports.length === 0) {
+                    reportListContainer.innerHTML = '<p class="text-gray-600 text-center">No tienes reportes en esta categoría.</p>';
+                    return;
+                }
+                reports.forEach(report => {
+                    const statusClass = getReportStatusClass(report.estado);
+                    let progressWidth = 0;
+                    let progressBarColor = 'bg-gray-400';
+                    if (report.estado === 'En proceso') {
+                        progressWidth = '50%';
+                        progressBarColor = 'bg-blue-600';
+                    } else if (report.estado === 'Resuelto' || report.estado === 'Cerrado') {
+                        progressWidth = '100%';
+                        progressBarColor = 'bg-green-600';
+                    }
+                    const reportElement = `
+                        <div class="bg-white p-6 rounded-lg shadow flex flex-col md:flex-row items-start md:items-center">
+                            <img src="${report.fotografias && report.fotografias.length > 0 && report.fotografias[0].url !== null ? report.fotografias[0].url : 'https://via.placeholder.com/100'}" alt="Incidencia" class="w-full md:w-24 h-24 object-cover rounded-lg mr-6 mb-4 md:mb-0">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">${report.titulo}</h3>
+                                <p class="text-gray-600 text-sm mb-1">${report.distrito} - ${report.categoria}</p>
+                                <p class="text-gray-700 text-sm mb-3">${report.descripcion.substring(0, 100)}...</p>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-2">
+                                    <div class="${progressBarColor} h-2.5 rounded-full" style="width: ${progressWidth};"></div>
+                                </div>
+                                <p class="text-sm text-gray-500 mb-2">Estado: ${report.estado}</p>
+                                <p class="text-sm text-gray-700 mb-2">Asignado a: ${report.asignado_a_nombre ? report.asignado_a_nombre : 'Sin asignar'}</p>
+                                <a href="#" class="text-blue-500 hover:text-blue-700 text-sm font-semibold">Ver detalles completos</a>
+                            </div>
+                            <div class="ml-0 md:ml-6 mt-4 md:mt-0">
+                                <span class="px-3 py-1 text-xs font-semibold rounded-full ${statusClass}">${report.estado}</span>
+                            </div>
+                        </div>
+                    `;
+                    reportListContainer.innerHTML += reportElement;
+                });
+            }
+
+            // Función para actualizar los conteos de los botones de filtro
+            function updateFilterCounts(allReports) {
+                const total = allReports.length;
+                const pendiente = allReports.filter(r => r.estado === 'Pendiente').length;
+                const enproceso = allReports.filter(r => r.estado === 'En proceso').length;
+                const resuelto = allReports.filter(r => r.estado === 'Resuelto').length;
+                document.getElementById('btn-todos').innerText = `Todos (${total})`;
+                document.getElementById('btn-pendiente').innerText = `Pendiente (${pendiente})`;
+                document.getElementById('btn-enproceso').innerText = `En proceso (${enproceso})`;
+                document.getElementById('btn-resuelto').innerText = `Resuelto (${resuelto})`;
+            }
+
+            // Función para obtener y renderizar los reportes desde la API
+            let allReportsCache = [];
+            async function fetchAndRenderReports(status = 'Todos') {
+                const token = window.auth.getAuthToken();
+                if (!token) {
+                    alert('No autenticado. Por favor, inicia sesión.');
+                    window.location.href = 'index.html';
+                    return;
+                }
+                try {
+                    let url = (window.apiBase || '') + '/api/reports';
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'x-auth-token': token
+                        }
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        allReportsCache = data;
+                        updateFilterCounts(allReportsCache);
+                        let filtered = allReportsCache;
+                        if (status !== 'Todos') {
+                            filtered = allReportsCache.filter(r => r.estado === status);
+                        }
+                        renderReports(filtered);
+                    } else {
+                        alert(data.msg || 'Error al obtener los reportes.');
+                        console.error('Error al obtener reportes:', data);
+                    }
+                } catch (error) {
+                    console.error('Error de red o del servidor:', error);
+                    alert('Error de conexión al obtener los reportes. Inténtalo de nuevo más tarde.');
+                }
+            }
+
+            // Event listeners para los botones de filtro
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('bg-blue-600', 'text-white');
+                        btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                    });
+                    button.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                    button.classList.add('bg-blue-600', 'text-white');
+
+                    const statusFilter = button.getAttribute('data-estado');
+                    fetchAndRenderReports(statusFilter);
+                });
+            });
+
+            // Cargar todos los reportes al inicio
+            fetchAndRenderReports();
+        });
+    </script>
+</body>
+</html>

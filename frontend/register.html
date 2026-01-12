@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Ciudadano Cusco - Crear Cuenta</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen relative">
+    <!-- Fondo panorámico de Cusco -->
+    <div class="absolute inset-0 z-0">
+        <img src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/66000/66587-Cusco.jpg" alt="Cusco panoramic view" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+
+    <div class="relative z-10 bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+        <div class="mb-4">
+            <a href="login.html" class="text-blue-500 hover:text-blue-700 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Volver
+            </a>
+        </div>
+        <h2 class="text-2xl font-semibold text-center mb-4">Crear Cuenta</h2>
+        <p class="text-gray-600 text-center mb-6">Únete al sistema de reportes ciudadanos</p>
+
+        <div class="flex justify-center mb-6">
+            <button id="citizenTab" class="py-2 px-4 rounded-l-lg border border-blue-500 bg-blue-500 text-white focus:outline-none">
+                Ciudadano
+            </button>
+            <button id="authorityTab" class="py-2 px-4 rounded-r-lg border border-gray-300 bg-gray-200 text-gray-700 focus:outline-none">
+                Autoridad
+            </button>
+        </div>
+
+        <form id="registerCitizenForm">
+            <div class="mb-4">
+                <label for="dni" class="block text-gray-700 text-sm font-bold mb-2">DNI:</label>
+                <input type="text" id="citizenDni" name="dni" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="12345678" required>
+            </div>
+            <div class="mb-4">
+                <label for="nombreCompleto" class="block text-gray-700 text-sm font-bold mb-2">Nombre Completo:</label>
+                <input type="text" id="citizenNombreCompleto" name="nombreCompleto" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Juan Pérez" required>
+            </div>
+            <div class="mb-4">
+                <label for="correoElectronico" class="block text-gray-700 text-sm font-bold mb-2">Correo Electrónico:</label>
+                <input type="email" id="citizenCorreoElectronico" name="correoElectronico" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="tu@email.com" required>
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Contraseña:</label>
+                <div class="relative">
+                    <input type="password" id="citizenPassword" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Mínimo 8 caracteres" required>
+                    <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5" onclick="togglePasswordVisibility('citizenPassword')">
+                        <svg class="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="mb-6">
+                <label for="confirmPassword" class="block text-gray-700 text-sm font-bold mb-2">Confirmar Contraseña:</label>
+                <div class="relative">
+                    <input type="password" id="citizenConfirmPassword" name="confirmPassword" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Repite tu contraseña" required>
+                    <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5" onclick="togglePasswordVisibility('citizenConfirmPassword')">
+                        <svg class="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Crear Cuenta</button>
+            </div>
+        </form>
+
+        <form id="registerAuthorityForm" class="hidden">
+            <div class="mb-4">
+                <label for="authorityDni" class="block text-gray-700 text-sm font-bold mb-2">DNI:</label>
+                <input type="text" id="authorityDni" name="dni" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="12345678" required>
+            </div>
+            <div class="mb-4">
+                <label for="authorityNombreCompleto" class="block text-gray-700 text-sm font-bold mb-2">Nombre Completo:</label>
+                <input type="text" id="authorityNombreCompleto" name="nombreCompleto" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Juan Pérez" required>
+            </div>
+            <div class="mb-4">
+                <label for="authorityCorreoElectronico" class="block text-gray-700 text-sm font-bold mb-2">Correo Institucional:</label>
+                <input type="email" id="authorityCorreoElectronico" name="correoElectronico" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="nombre@municusco.gob.pe" required>
+            </div>
+            <div class="mb-4">
+                <label for="authorityCargo" class="block text-gray-700 text-sm font-bold mb-2">Cargo / Posición:</label>
+                <input type="text" id="authorityCargo" name="cargo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Jefe de Infraestructura" required>
+            </div>
+            <div class="mb-4">
+                <label for="authorityPassword" class="block text-gray-700 text-sm font-bold mb-2">Contraseña:</label>
+                <div class="relative">
+                    <input type="password" id="authorityPassword" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Mínimo 8 caracteres" required>
+                    <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5" onclick="togglePasswordVisibility('authorityPassword')">
+                        <svg class="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="mb-6">
+                <label for="authorityConfirmPassword" class="block text-gray-700 text-sm font-bold mb-2">Confirmar Contraseña:</label>
+                <div class="relative">
+                    <input type="password" id="authorityConfirmPassword" name="confirmPassword" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Repite tu contraseña" required>
+                    <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5" onclick="togglePasswordVisibility('authorityConfirmPassword')">
+                        <svg class="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Crear Cuenta</button>
+            </div>
+        </form>
+        <p class="text-center text-gray-600 text-xs mt-4">
+            ¿Ya tienes una cuenta? <a href="login.html" class="text-blue-500 hover:text-blue-800">Iniciar Sesión</a>
+        </p>
+    </div>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Gestión de Reportes</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shared.css">
+</head>
+<body class="flex min-h-screen bg-gray-100">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-blue-800 text-white flex flex-col">
+        <div class="px-6 py-4 border-b border-blue-700">
+            <h2 class="text-2xl font-bold">Reporte Ciudadano</h2>
+            <p class="text-sm text-blue-200">Panel Administrativo</p>
+        </div>
+        <div class="px-6 py-4 text-center">
+            <div class="w-20 h-20 bg-blue-700 rounded-full mx-auto mb-2 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+            </div>
+            <p class="font-semibold">Administrador Municipal</p>
+            <p class="text-sm text-blue-200">Director de Gestión Urbana</p>
+        </div>
+        <nav class="flex-1"> 
+            <a href="dashboard.html" class="flex items-center px-6 py-3 text-blue-100 hover:bg-blue-700 hover:text-white transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                Dashboard
+            </a>
+            <a href="report-management.html" class="flex items-center px-6 py-3 text-blue-100 hover:bg-blue-700 hover:text-white transition-colors duration-200 bg-blue-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                </svg>
+                Gestión de Reportes
+            </a>
+            <a href="map.html" class="flex items-center px-6 py-3 text-blue-100 hover:bg-blue-700 hover:text-white transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Mapa de Incidencias
+            </a>
+            <a href="profile.html" class="flex items-center px-6 py-3 text-blue-100 hover:bg-blue-700 hover:text-white transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Mi Perfil
+            </a>
+            <a href="#" data-logout="true" class="flex items-center px-6 py-3 text-blue-100 hover:bg-blue-700 hover:text-white transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+                Cerrar Sesión
+            </a>
+        </nav>
+        <div class="mt-auto px-6 py-4 border-t border-blue-700">
+            <p class="text-sm text-blue-200">v1.0</p>
+        </div>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="flex-1 p-8">
+        <h1 id="gestionTitulo" class="text-3xl font-bold text-gray-800 mb-6">Gestión de Reportes</h1>
+        <p id="gestionDescripcion" class="text-gray-600 mb-8">Revisa, asigna y actualiza el estado de los reportes ciudadanos</p>
+
+        <!-- Filtros y Búsqueda -->
+        <div class="bg-white p-6 rounded-lg shadow mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <input type="text" id="searchReport" placeholder="Buscar por título o descripción..." class="p-2 border border-gray-300 rounded-md">
+                <select id="filterStatus" class="p-2 border border-gray-300 rounded-md">
+                    <option value="">Estado: Todos</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="En proceso">En proceso</option>
+                    <option value="En espera">En espera</option>
+                    <option value="Resuelto">Resuelto</option>
+                    <option value="Cerrado">Cerrado</option>
+                </select>
+                <select id="filterCategory" class="p-2 border border-gray-300 rounded-md">
+                    <option value="">Categoría: Todas</option>
+                    <option value="Basura acumulada">Basura acumulada</option>
+                    <option value="Alumbrado defectuoso">Alumbrado defectuoso</option>
+                    <option value="Agujeros / baches en la vía">Agujeros / baches en la vía</option>
+                    <option value="Robo / inseguridad">Robo / inseguridad</option>
+                    <option value="Mal estado de parques">Mal estado de parques</option>
+                    <option value="Señalización caída">Señalización caída</option>
+                </select>
+                <select id="filterDistrict" class="p-2 border border-gray-300 rounded-md">
+                    <option value="">Distrito: Todos</option>
+                    <option value="Cusco">Cusco</option>
+                    <option value="Santiago">Santiago</option>
+                    <option value="Wanchaq">Wanchaq</option>
+                    <option value="San Sebastián">San Sebastián</option>
+                    <option value="San Jerónimo">San Jerónimo</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Tabla de Reportes -->
+        <div id="reportManagementTable" class="bg-white p-6 rounded-lg shadow overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Reporte</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Categoría</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Distrito</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ciudadano</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Asignado</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="reportTableBody" class="bg-white divide-y divide-gray-200">
+                                <!-- La columna de ciudadano se renderiza desde JS -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="../js/shared/auth.js"></script>
+    <script src="../js/shared/logout.js"></script>
+    <script src="../js/admin/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (typeof window.auth === 'undefined') {
+                console.error('auth.js no se ha cargado. Asegúrate de incluirlo antes de admin.js');
+                window.location.href = 'index.html';
+                return;
+            }
+            // --- Cargar perfil de usuario en el sidebar ---
+            async function loadUserProfile() {
+                try {
+                    const response = await fetch((window.apiBase || '') + '/api/users/profile', {
+                        headers: { 'Authorization': `Bearer ${window.auth.getAuthToken()}` }
+                    });
+                    const user = await response.json();
+                    if (response.ok) {
+                        const nameEl = document.querySelector('aside .font-semibold');
+                        const roleEl = document.querySelector('aside .text-blue-200');
+                        if (nameEl) nameEl.textContent = user.nombre_completo;
+                        if (roleEl) roleEl.textContent = user.cargo || user.rol;
+                    } else {
+                        console.error('Error al cargar perfil:', user.msg);
+                    }
+                } catch (error) {
+                    console.error('Error de red al cargar perfil:', error);
+                }
+            }
+            loadUserProfile();
+
+            const searchInput = document.getElementById('searchReport');
+            const statusFilter = document.getElementById('filterStatus');
+            const categoryFilter = document.getElementById('filterCategory');
+            const districtFilter = document.getElementById('filterDistrict');
+            const reportTableBody = document.getElementById('reportTableBody');
+            let authorities = [];
+
+            // Detectar rol y cambiar título/descripción
+            let userRole = null;
+            let userId = null;
+            try {
+                const parts = window.auth.getAuthToken().split('.');
+                if (parts.length >= 2) {
+                    const payload = JSON.parse(atob(parts[1]));
+                    userRole = window.auth.getRoleFromToken(window.auth.getAuthToken());
+                    userId = payload.user && payload.user.id ? payload.user.id : null;
+                }
+            } catch (e) {}
+            if (userRole === 'autoridad') {
+                document.getElementById('gestionTitulo').textContent = 'Mis Tareas';
+                document.getElementById('gestionDescripcion').textContent = 'Aquí puedes ver y gestionar solo las incidencias que te han sido asignadas.';
+            }
+
+            function getReportStatusClass(status) {
+                switch (status) {
+                    case 'Pendiente':
+                        return 'bg-yellow-100 text-yellow-800';
+                    case 'En proceso':
+                        return 'bg-blue-100 text-blue-800';
+                    case 'En espera':
+                        return 'bg-orange-100 text-orange-800';
+                    case 'Resuelto':
+                        return 'bg-green-100 text-green-800';
+                    case 'Cerrado':
+                        return 'bg-gray-200 text-gray-800';
+                    default:
+                        return 'bg-gray-100 text-gray-700';
+                }
+            }
+            async function fetchAuthorities() {
+                try {
+                    const response = await fetch((window.apiBase || '') + '/api/reports/authorities', {
+                        headers: { 'x-auth-token': window.auth.getAuthToken(), 'Authorization': `Bearer ${window.auth.getAuthToken()}` }
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        authorities = data;
+                    } else {
+                        console.error('Error al obtener autoridades:', data.msg);
+                    }
+                } catch (error) {
+                    console.error('Error de red al obtener autoridades:', error);
+                }
+            }
+            async function fetchAndRenderReports() {
+                const searchTerm = searchInput.value;
+                const selectedStatus = statusFilter.value || '';
+                const selectedCategory = categoryFilter.value || '';
+                const selectedDistrict = districtFilter.value || '';
+                let url = (window.apiBase || '') + `/api/reports?`;
+                if (searchTerm) url += `search=${encodeURIComponent(searchTerm)}&`;
+                if (selectedStatus) url += `estado=${encodeURIComponent(selectedStatus)}&`;
+                if (selectedCategory) url += `categoria=${encodeURIComponent(selectedCategory)}&`;
+                if (selectedDistrict) url += `distrito=${encodeURIComponent(selectedDistrict)}&`;
+                url = url.slice(0, -1);
+                try {
+                    const response = await fetch(url, {
+                        headers: { 'Authorization': `Bearer ${window.auth.getAuthToken()}` }
+                    });
+                    let reports = await response.json();
+                    // Si es autoridad, filtrar solo los asignados a él
+                    if (userRole === 'autoridad' && userId) {
+                        reports = reports.filter(r => r.asignado_id === userId);
+                    }
+                    if (response.ok) {
+                        const normalized = reports.map(r => {
+                            try {
+                                if (r.fotografias && typeof r.fotografias === 'string') r.fotografias = JSON.parse(r.fotografias);
+                            } catch (e) { r.fotografias = r.fotografias || []; }
+                            return r;
+                        });
+                        renderReportTable(normalized);
+                    } else {
+                        alert(reports.msg || 'Error al obtener los reportes.');
+                        console.error('Error al obtener reportes:', reports);
+                    }
+                } catch (error) {
+                    console.error('Error de red o del servidor:', error);
+                    alert('Error de conexión al obtener los reportes. Inténtalo de nuevo más tarde.');
+                }
+            }
+            function renderReportTable(reports) {
+                reportTableBody.innerHTML = '';
+                if (reports.length === 0) {
+                    reportTableBody.innerHTML = '<tr><td colspan="8" class="px-6 py-4 text-center text-gray-500">No tienes tareas asignadas o no hay reportes que coincidan con los filtros.</td></tr>';
+                    return;
+                }
+                reports.forEach(report => {
+                    const statusClass = getReportStatusClass(report.estado);
+                    const reportDate = new Date(report.created_at).toLocaleDateString('es-ES');
+                    let assignSelectOptions = '<option value="">Sin asignar</option>';
+                    authorities.forEach(authority => {
+                        const selected = report.asignado_id === authority.id ? 'selected' : '';
+                        assignSelectOptions += `<option value="${authority.id}" ${selected}>${authority.nombre_completo} (${authority.cargo || 'Autoridad'})</option>`;
+                    });
+                    const reportElement = `
+                        <tr data-report-id="${report.id}">
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <img class="h-10 w-10 rounded-full" src="${report.fotografias && report.fotografias.length > 0 && report.fotografias[0].url !== null ? report.fotografias[0].url : 'https://via.placeholder.com/40'}" alt="">
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">${report.titulo}</div>
+                                        <div class="text-sm text-gray-500">${report.direccion}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${report.categoria}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${report.distrito}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${statusClass}">${report.estado}</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${report.ciudadano_nombre}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${reportDate}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                <select class="assign-authority-select p-2 border border-gray-300 rounded-md" data-report-id="${report.id}">
+                                    ${assignSelectOptions}
+                                </select>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-2 view-report-btn" data-report-id="${report.id}">Ver</a>
+                                <a href="#" class="text-green-600 hover:text-green-900 update-status-btn" data-report-id="${report.id}" data-current-status="${report.estado}">Actualizar Estado</a>
+                            </td>
+                        </tr>
+                    `;
+                    reportTableBody.innerHTML += reportElement;
+                });
+                document.querySelectorAll('.assign-authority-select').forEach(select => {
+                    select.addEventListener('change', async (e) => {
+                        const reportId = e.target.dataset.reportId;
+                        const assignedToId = e.target.value || null;
+                        try {
+                            const response = await fetch((window.apiBase || '') + `/api/reports/${reportId}/assign`, {
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'x-auth-token': window.auth.getAuthToken(), // Keep x-auth-token for backward compatibility if backend expects it
+                                    'Authorization': `Bearer ${window.auth.getAuthToken()}`
+                                },
+                                body: JSON.stringify({ asignado_id: assignedToId })
+                            });
+                            const data = await response.json();
+                            if (response.ok) {
+                                alert('Reporte asignado/desasignado con éxito!');
+                                fetchAndRenderReports();
+                            } else {
+                                alert(data.msg || 'Error al asignar reporte.');
+                                console.error('Error al asignar reporte:', data);
+                            }
+                        } catch (error) {
+                            console.error('Error de red o del servidor al asignar reporte:', error);
+                            alert('Error de conexión al asignar reporte. Inténtalo de nuevo más tarde.');
+                        }
+                    });
+                });
+            }
+            searchInput.addEventListener('input', fetchAndRenderReports);
+            statusFilter.addEventListener('change', fetchAndRenderReports);
+            categoryFilter.addEventListener('change', fetchAndRenderReports);
+            districtFilter.addEventListener('change', fetchAndRenderReports);
+            await fetchAuthorities();
+            fetchAndRenderReports();
+        });
+    </script>
