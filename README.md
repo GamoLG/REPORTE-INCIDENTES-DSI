@@ -352,8 +352,165 @@ try {
 - Si no aparecen marcadores en el mapa, la base de datos probablemente no contiene reportes; crea algunos para probar o ejecuta un pequeño script de seed.
 - El flujo de recuperación de contraseña (`/api/auth/forgot`) en el entorno local está simulado y no envía correos reales a menos que configures un proveedor SMTP o Cloudinary según `backend/config/cloudinary.js`.
 
-Si quieres, puedo:
-- Añadir un botón de export en `frontend/admin-dashboard.html` que use el JWT y descargue el Excel/PDF.
-- Crear un script de `seed` para generar reportes de ejemplo.
+README DEL BACKEND:
+# Backend - Sistema de Gestión de Incidencias
+
+Este backend implementa la API RESTful para el sistema de denuncias ciudadanas.
+
+## Puntos clave
+- Node.js, Express, Sequelize y PostgreSQL (recomendado)
+- JWT para autenticación y roles (ciudadano, autoridad, admin)
+- Gestión de usuarios, incidencias, historial, comentarios y evidencias
+- Exportación de reportes (Excel/PDF)
+- Almacenamiento de imágenes en Cloudinary
+
+Consulta detalles ampliados en [../readme-guia.md](../readme-guia.md).
+
+## Estructura de carpetas
+- `models/` — Modelos Sequelize: User, Report, Image, Comment, Historial
+- `routes/` — Rutas API: auth, users, reports, dashboard
+- `middleware/` — Autenticación y autorización
+- `config/` — Configuración de servicios externos (Cloudinary)
+- `scripts/` — Scripts utilitarios (crear admin, etc.)
+
+## Instalación y configuración
+1. Instala dependencias:
+  ```bash
+  npm install
+  ```
+2. Copia `.env.example` a `.env` y configura:
+  - DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_DATABASE, JWT_SECRET
+3. Crea la base de datos y aplica el esquema:
+  ```bash
+  psql -h <host> -U <usuario> -d <nombre_bd> -f postgres_schema.sql
+  ```
+  O usa los scripts automáticos:
+  - Windows: `../db_setup.ps1`
+  - Linux/macOS: `../db_setup.sh`
+4. Crea un usuario admin:
+  - Ejecuta `node scripts/create_admin.js` o inserta manualmente (ver ejemplo en postgres_schema.sql)
+
+## Ejecución
+- Modo producción:
+  ```bash
+  npm start
+  ```
+- Modo desarrollo (hot reload):
+  ```bash
+  npm run dev
+  ```
+
+## Endpoints principales
+- `POST /api/auth/register` — Registro de usuario
+- `POST /api/auth/login` — Login y JWT
+- `GET /api/reports/public` — Incidencias públicas (mapa)
+- `GET /api/reports/export?format=excel|pdf` — Exportar reportes (admin/autoridad)
+- `GET/PUT /api/users/profile` — Perfil de usuario
+
+## Ejemplo de autenticación
+```bash
+curl -X POST http://localhost:5000/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"correoElectronico":"admin@gmail.com","password":"admin123"}'
+```
+
+---
+
+Para problemas conocidos y tareas, revisa [../TODO_NOTES.md](../TODO_NOTES.md).
+```
+Respuesta:
+```json
+{"token": "<JWT>"}
+```
+
+## Ejemplo de exportación de reportes
+```bash
+curl -X GET "http://localhost:5000/api/reports/export?format=excel" \
+  -H "Authorization: Bearer <JWT>" --output reportes.xlsx
+```
+
+## Estadísticas y ejemplos
+- **Usuarios:** ciudadanos, autoridades, admins (roles diferenciados)
+- **Reportes:** pueden tener imágenes, historial de estados, comentarios
+- **Exportación:** admins/autoridades pueden exportar reportes a Excel/PDF
+- **Autenticación:** JWT, roles, protección de rutas
+
+## Notas
+- El backend escucha en `http://localhost:5000` por defecto
+- Consulta el archivo `postgres_schema.sql` para el modelo de datos y ejemplos de inserción
+- El sistema es extensible para nuevos roles, categorías y distritos
+
+---
+Desarrollado para fines académicos. Consulta el código y los comentarios para más detalles.
+
+
+READMI DEL FRONTEND
+
+# Frontend - Sistema de Gestión de Incidencias
+
+SPA ligera basada en HTML, CSS (Tailwind) y JavaScript puro, con migración progresiva a React.js.
+Permite a ciudadanos, autoridades y administradores interactuar con el sistema de incidencias mediante dashboards, mapas y formularios.
+
+## Puntos clave
+- HTML5, CSS3 (Tailwind), JavaScript ES6+, React.js (en proceso)
+- Mapas interactivos (Leaflet.js), gráficas (Chart.js)
+- Consumo de API REST, autenticación y control de roles
+- Perfiles dinámicos y exportación de reportes
+
+Consulta detalles ampliados en [../readme-guia.md](../readme-guia.md).
+
+## Estructura de carpetas
+- `admin-dashboard.html` — Panel principal del administrador
+- `citizen-dashboard.html` — Panel principal del ciudadano
+- `admin-map.html`, `citizen-map.html` — Mapas de incidencias
+- `admin-profile.html`, `citizen-profile.html` — Perfiles dinámicos
+- `js/` — Scripts para mapas, dashboards, perfiles, autenticación
+- `css/` — Estilos generales y específicos por rol
+
+## Instalación y ejecución
+1. Instala dependencias en la raíz del proyecto:
+   ```bash
+   npm install
+   ```
+2. Inicia el servidor estático recomendado:
+   ```bash
+   npm run frontend
+   # o
+   live-server frontend --port=3000 --host=127.0.0.1
+   ```
+3. Accede a `http://127.0.0.1:3000` en tu navegador.
+
+## Funcionalidades principales
+- **Dashboard con estadísticas:** métricas de reportes, gráficas por categoría, estado y distrito (Chart.js)
+- **Mapa interactivo:** visualización de incidencias públicas con filtros y marcadores de colores (Leaflet)
+- **Perfiles dinámicos:** carga de datos del usuario autenticado (ciudadano, autoridad, admin)
+- **Exportación de reportes:** admins/autoridades pueden exportar a Excel/PDF desde el dashboard
+- **Autenticación y roles:** login, registro, control de acceso por rol
+
+## Ejemplo de uso (exportar reportes)
+1. Inicia sesión como admin o autoridad
+2. Ve a `admin-dashboard.html` y haz clic en "Exportar"
+3. Selecciona PDF o Excel; el archivo se descarga automáticamente
+
+## Estadísticas y ejemplos
+- **Métricas en dashboard:**
+  - Total de reportes
+  - Pendientes, en proceso, resueltos
+  - Gráficas por categoría, estado y distrito
+- **Mapa:**
+  - Marcadores de colores según estado
+  - Filtros dinámicos por categoría, estado y distrito
+- **Perfiles:**
+  - Datos cargados dinámicamente vía JS desde `/api/users/profile`
+
+## Notas y recomendaciones
+- El frontend es estático, pero requiere el backend corriendo para consumir la API
+- Si no ves datos, asegúrate de tener reportes y usuarios en la base de datos
+- Consulta los scripts JS para personalizar la lógica de mapas, dashboards y perfiles
+
+---
+
+Para problemas conocidos y tareas, revisa [../TODO_NOTES.md](../TODO_NOTES.md).
+Desarrollado para fines académicos. Consulta el código y los comentarios para más detalles.
 
 
