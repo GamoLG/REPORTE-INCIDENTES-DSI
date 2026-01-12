@@ -1,4 +1,3 @@
-
 # Proyecto de Incidencias
 
 Aplicación web integral para el reporte, gestión y seguimiento de incidencias ciudadanas.
@@ -356,3 +355,5 @@ try {
 Si quieres, puedo:
 - Añadir un botón de export en `frontend/admin-dashboard.html` que use el JWT y descargue el Excel/PDF.
 - Crear un script de `seed` para generar reportes de ejemplo.
+
+
